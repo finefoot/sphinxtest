@@ -5,7 +5,7 @@ Text
 
 Text Text
 
-.. automodule:: noodle
+.. automodule:: brrrrrrrrr
    :members:
    :undoc-members:
 
