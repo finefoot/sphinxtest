@@ -12,7 +12,7 @@ jobs:
       script: black --check src
     - stage: test
       name: "Travis"
-      script: ruby -v
+      script: ruby -v && gem install travis -v 1.8.10 --no-rdoc --no-ri && travis version
     - stage: test
       name: "Sphinx docs generator"
       script: sphinx-build -b html docs docs/_build
