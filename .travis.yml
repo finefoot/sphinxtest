@@ -12,7 +12,7 @@ jobs:
       name: "Test with pylint"
       script: pylint src
     - stage: test
-      name: "Test with pylint"
+      name: "Test with black"
       script: black --check src
     - stage: deploy
       name: "Deploy to ADADADA"
