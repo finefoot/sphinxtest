@@ -11,8 +11,6 @@ jobs:
     - stage: pylint
       name: "Unit Tests"
       script: pylint src
-    - stage: black
-      name: "ahahaha"
       script: black --check src
     - stage: deploy
       name: "Deploy to ADADADA"
