@@ -3,13 +3,6 @@ Welcome to Fibonacci's documentation!
 
 blabla
 
-Automatically generated indices and tables
-------------------------------------------
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
 Table of contents
 -----------------
 
@@ -18,12 +11,6 @@ Table of contents
    :caption: Start
 
    self
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Dann
-
-   py-modindex
 
 .. toctree::
    :maxdepth: 1
@@ -38,3 +25,10 @@ Table of contents
 
    code/start
    code/nichts
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Appendix
+
+   genindex
+   py-modindex
