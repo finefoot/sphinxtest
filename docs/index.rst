@@ -14,10 +14,14 @@ Table of contents
 -----------------
 
 .. toctree::
+   :hidden:
+
+   self
+
+.. toctree::
    :maxdepth: 1
    :caption: Usage
 
-   self
    usage/installation
    usage/quickstart
 
