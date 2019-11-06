@@ -1,2 +1,2 @@
-Fake
-====
+Python Module Index
+===================
