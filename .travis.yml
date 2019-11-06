@@ -11,6 +11,9 @@ jobs:
       name: "Black code formatter"
       script: black --check src
     - stage: test
+      name: "Travis"
+      script: travis version
+    - stage: test
       name: "Sphinx docs generator"
       script: sphinx-build -b html docs docs/_build
     - stage: deploy
