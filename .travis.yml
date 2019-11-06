@@ -1,4 +1,11 @@
 language: python
+python:
+  - "3.6"
+
+branches:
+  only:
+  - master
 
 script:
-- echo "hello"
+- pwd
+- bash update.sh
