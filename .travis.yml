@@ -7,5 +7,15 @@ branches:
   - master
 
 script:
-- pwd
-- bash update.sh
+- |
+  git config user.name "Travis CI"
+  git config user.email "travis@travis-ci.org"
+  git remote remove origin
+  git remote add origin https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
+  # darf auch failen, mal testen
+  git push -d origin gh-pages
+  git checkout -b gh-pages
+  sphinx-build -b html docs docs/_build
+  git add -A
+  git commit -m "Update Sphinx"
+  git push origin gh-pages
