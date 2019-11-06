@@ -3,6 +3,13 @@ Welcome to Fibonacci's documentation!
 
 blabla
 
+Indices and tables
+------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
 Table of contents
 -----------------
 
@@ -19,10 +26,3 @@ Table of contents
 
    usage/installation
    usage/quickstart
-
-Indices and tables
-------------------
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
