@@ -10,7 +10,7 @@ blabla
 
 .. _usage:
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Usage
 
    usage/installation
@@ -18,7 +18,7 @@ blabla
 
 .. _code_overview:
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Code Overview
 
    usage/installation
