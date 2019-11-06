@@ -6,9 +6,6 @@ blabla
 Table of contents
 -----------------
 
-blabla
-
-.. _usage:
 .. toctree::
    :maxdepth: 1
    :caption: Usage
@@ -16,7 +13,6 @@ blabla
    usage/installation
    usage/quickstart
 
-.. _code_overview:
 .. toctree::
    :maxdepth: 1
    :caption: Code Overview
@@ -24,9 +20,9 @@ blabla
    usage/installation
    usage/quickstart
 
+Indices and tables
+------------------
 
-.. toctree::
-   :hidden:
-
-   genindex
-
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
