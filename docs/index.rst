@@ -3,8 +3,8 @@ Welcome to Fibonacci's documentation!
 
 blabla
 
-Indices and tables
-------------------
+Automatically generated indices and tables
+------------------------------------------
 
 * :ref:`genindex`
 * :ref:`modindex`
@@ -14,6 +14,8 @@ Table of contents
 -----------------
 
 .. toctree::
+   :maxdepth: 1
+   :caption: Start
    :hidden:
 
    self
