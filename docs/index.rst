@@ -15,13 +15,6 @@ Table of contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Start
-   :hidden:
-
-   index
-
-.. toctree::
-   :maxdepth: 1
    :caption: Usage
 
    usage/installation
@@ -29,7 +22,7 @@ Table of contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Code Overview
+   :caption: Code
 
-   usage/installation
-   usage/quickstart
+   code/start
+   code/nichts
