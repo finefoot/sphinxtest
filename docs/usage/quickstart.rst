@@ -5,7 +5,7 @@ Text
 
 Text Text
 
-.. autoclass:: noodle
+.. automodule:: noodle
    :members:
 
 For more information see
