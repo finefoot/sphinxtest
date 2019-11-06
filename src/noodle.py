@@ -1,5 +1,6 @@
 """ajajajajaj"""
 
+
 class Noodle:
     """ajajajajaj"""
 
@@ -7,8 +8,10 @@ class Noodle:
 
     def faafaa(self):
         """ajajajajaj"""
-        return 2
 
-    def guuuuu(self, x):
+        return 2 + id(self)
+
+    def guuuuu(self, xnumber):
         """ajajajajaj"""
-        return "aa"
+
+        return "aa" * xnumber + self.name
