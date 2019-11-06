@@ -10,7 +10,7 @@ blabla
 
 .. _usage:
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Usage
 
    usage/installation
@@ -18,11 +18,20 @@ blabla
 
 .. _code_overview:
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Code Overview
 
    usage/installation
    usage/quickstart
+
+.. _indices:
+.. toctree::
+   :maxdepth: 1
+   :caption: Indices and tables
+
+   :ref:`genindex`
+   :ref:`modindex`
+   :ref:`search`
 
 
 Indices and tables
