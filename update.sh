@@ -1,5 +1,6 @@
 git config user.name finefoot
 git config user.email finefoot@finefoot.finefoot
+# darf auch failen
 git push -d origin gh-pages
 git checkout -b gh-pages
 sphinx-build -b html docs docs/_build
