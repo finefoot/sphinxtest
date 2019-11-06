@@ -29,9 +29,9 @@ blabla
    :maxdepth: 1
    :caption: Indices and tables
 
-   :ref:`genindex`
-   :ref:`modindex`
-   :ref:`search`
+   genindex
+   modindex
+   search
 
 
 Indices and tables
