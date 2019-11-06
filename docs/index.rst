@@ -18,7 +18,7 @@ Table of contents
    :caption: Start
    :hidden:
 
-   self
+   index
 
 .. toctree::
    :maxdepth: 1
