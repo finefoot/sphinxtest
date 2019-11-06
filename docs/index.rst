@@ -17,6 +17,7 @@ Table of contents
    :maxdepth: 1
    :caption: Usage
 
+   self
    usage/installation
    usage/quickstart
 
