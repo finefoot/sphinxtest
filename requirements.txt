@@ -1,2 +1,4 @@
+black
+pylint
 Sphinx
 sphinx-rtd-theme
