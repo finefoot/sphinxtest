@@ -8,8 +8,8 @@ branches:
 
 script:
 - |
-  git config user.name "Travis"
-  git config user.email "builds@travis-ci.org"
+  git config user.name "travisbot"
+  git config user.email "support@travis-ci.org"
   git remote remove origin
   git remote add origin https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
   # darf auch failen, mal testen
