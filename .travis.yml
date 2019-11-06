@@ -2,20 +2,16 @@ language: python
 python:
   - "3.6"
 
-branches:
-  only:
-  - master
-
 jobs:
   include:
     - stage: test
-      name: "Test with pylint"
+      name: "Pylint code analysis"
       script: pylint src
     - stage: test
-      name: "Test with black"
+      name: "Black code formatter"
       script: black --check src
     - stage: deploy
-      name: "Deploy to ADADADA"
+      name: "Build and deploy docs"
       script:
       - |
         set -e
