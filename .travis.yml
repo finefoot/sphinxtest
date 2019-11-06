@@ -5,7 +5,7 @@ python:
 jobs:
   include:
     - stage: test
-      name: "Pylint code analysis"
+      name: "Pylint static code analysis"
       script: pylint src
     - stage: test
       name: "Black code formatter"
