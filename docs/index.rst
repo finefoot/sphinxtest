@@ -15,6 +15,12 @@ Table of contents
 
 .. toctree::
    :maxdepth: 1
+   :caption: Start
+
+   self
+
+.. toctree::
+   :maxdepth: 1
    :caption: Usage
 
    usage/installation
