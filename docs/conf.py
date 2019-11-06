@@ -2,7 +2,7 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath("../src"))
 
-project = "Fibonacci"
+project = "PROJECT"
 copyright = "2017, AUTHOR"
 
 extensions = ["sphinx.ext.autodoc"]
