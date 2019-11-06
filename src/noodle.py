@@ -14,4 +14,4 @@ class Noodle:
     def guuuuu(self, xnumber):
         """ajajajajaj"""
 
-        return "aa" * xnumber + self.name
+        return "aa" * xnumber + str(id(self))
