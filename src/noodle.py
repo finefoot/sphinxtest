@@ -1,7 +1,7 @@
 """ajajajajaj"""
 
 
-class Noodle:
+class Brrrrrrrrr:
     """ajajajajaj"""
 
     LENGTH = 7
