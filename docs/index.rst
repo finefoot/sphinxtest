@@ -3,15 +3,15 @@ Welcome to Fibonacci's documentation!
 
 blabla
 
-Documentation Conventions
--------------------------
+Table of contents
+-----------------
 
 blabla
 
-.. _getting_started:
+.. _usage:
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started
+   :caption: Usage
 
    usage/installation
    usage/quickstart
@@ -26,7 +26,7 @@ blabla
 
 
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
 * :ref:`modindex`
