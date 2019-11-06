@@ -10,12 +10,16 @@ jobs:
     - stage: test
       name: "Black code formatter"
       script: black --check src
+    - stage: test
+      name: "Sphinx docs generator"
+      script: sphinx-build -b html docs docs/_build
     - stage: deploy
-      name: "Build and deploy docs"
+      name: "Deploy docs to GitHub"
       script:
       - |
         #!/bin/bash
         set -e
+        find docs
         if [ "${TRAVIS_PULL_REQUEST}" != "false" ]
         then
           printf '%s' "No deployment for pull requests"
@@ -34,5 +38,5 @@ jobs:
         git checkout -b gh-pages
         sphinx-build -b html docs docs/_build
         git add -A
-        git commit -m "Update Sphinx"
+        git commit -m "Update docs"
         git push origin gh-pages
