@@ -19,6 +19,16 @@ jobs:
       script:
       - |
         set -e
+        if [ "${TRAVIS_PULL_REQUEST}" != "false" ]
+        then
+          printf '%s' "No deployment for pull requests"
+          exit 1
+        fi
+        if [ "${TRAVIS_BRANCH}" != "master" ]
+        then
+          printf '%s' "No deployment for branches other than master"
+          exit 1
+        fi
         git config user.name "traviscibot"
         git config user.email "deploy@travis-ci.org"
         git remote remove origin
