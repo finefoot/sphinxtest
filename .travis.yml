@@ -19,12 +19,12 @@ jobs:
         if [ "${TRAVIS_PULL_REQUEST}" != "false" ]
         then
           printf '%s' "No deployment for pull requests"
-          travis_terminate
+          travis_terminate 0
         fi
         if [ "${TRAVIS_BRANCH}" != "master" ]
         then
           printf '%s' "No deployment for branches other than master"
-          travis_terminate
+          travis_terminate 0
         fi
         git config user.name "traviscibot"
         git config user.email "deploy@travis-ci.org"
