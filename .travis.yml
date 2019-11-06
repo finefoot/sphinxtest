@@ -8,6 +8,7 @@ branches:
 
 script:
 - |
+  set -e
   git config user.name "traviscibot"
   git config user.email "deploy@travis-ci.org"
   git remote remove origin
