@@ -1,6 +1,14 @@
+"""ajajajajaj"""
+
 class Noodle:
+    """ajajajajaj"""
+
     LENGTH = 7
-    def f():
+
+    def faafaa(self):
+        """ajajajajaj"""
         return 2
-    def g(x):
+
+    def guuuuu(self, x):
+        """ajajajajaj"""
         return "aa"
