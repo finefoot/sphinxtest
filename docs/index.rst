@@ -26,3 +26,9 @@ Table of contents
 
    code/start
    code/nichts
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Appendix
+
+   genindex
