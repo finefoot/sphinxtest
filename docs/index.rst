@@ -24,19 +24,9 @@ blabla
    usage/installation
    usage/quickstart
 
-.. _indices:
+
 .. toctree::
-   :maxdepth: 1
-   :caption: Indices and tables
+   :hidden:
 
    genindex
-   modindex
-   search
 
-
-Indices and tables
-------------------
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
