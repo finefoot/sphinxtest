@@ -11,9 +11,6 @@ jobs:
       name: "Black code formatter"
       script: black --check src
     - stage: test
-      name: "Travis"
-      script: ruby -v && gem install travis -v 1.8.10 --no-rdoc --no-ri && travis login --github-token "${GITHUB_TOKEN}" && travis cancel "${TRAVIS_JOB_NUMBER}" && sleep 1000
-    - stage: test
       name: "Sphinx docs generator"
       script: sphinx-build -b html docs docs/_build
     - stage: deploy
@@ -22,15 +19,14 @@ jobs:
       - |
         #!/bin/bash
         set -e
-        find docs
         if [ "${TRAVIS_PULL_REQUEST}" != "false" ]
         then
-          printf '%s' "No deployment for pull requests"
+          printf '%s\n' "No deployment for pull requests"
           travis_terminate 0
         fi
         if [ "${TRAVIS_BRANCH}" != "master" ]
         then
-          printf '%s' "No deployment for branches other than master"
+          printf '%s\n' "No deployment for branches other than master"
           travis_terminate 0
         fi
         git config user.name "traviscibot"
