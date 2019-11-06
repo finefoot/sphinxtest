@@ -3,6 +3,13 @@ Welcome to Fibonacci's documentation!
 
 blabla
 
+Automatically generated indices and tables
+------------------------------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
 Table of contents
 -----------------
 
@@ -25,11 +32,3 @@ Table of contents
 
    code/start
    code/nichts
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Appendix
-
-   genindex
-   modindex
-   search
