@@ -1,4 +1,4 @@
 Insects
 =======
 
-Text
+.. image:: insects.png
