@@ -1,79 +1,76 @@
-  # Test the code with Pylint, Black and Sphinx
-  # Compile and deploy the docs to GitHub pages
-  #
-  # There are two methods to authenticate the deployment to GitHub: The
-  # first method is to generate a SSH keypair: the public key is stored
-  # at the GitHub repository as a deploy key and the private key is
-  # provided to your Travis CI build instances via a base64-encoded
-  # environment variable called `GITHUB_DEPLOY_KEY`. You can use the
-  # following script to easily generate those keys:
-  #
-  #     #!/bin/bash
-  #     TEMPDIR=$(mktemp -d)
-  #     ssh-keygen -b 4096 -t rsa -N "" -C "Travis CI" -f "$TEMPDIR/id_rsa" > /dev/null
-  #     printf '\n%s\n\n' "Add a deploy key to your GitHub repository with the following value:"
-  #     cat "$TEMPDIR/id_rsa.pub"
-  #     printf '\n%s\n\n' "Add a variable called GITHUB_DEPLOY_KEY to Travis CI with the following value:"
-  #     base64 -w 0 "$TEMPDIR/id_rsa"
-  #     printf '\n\n'
-  #     rm -rf "$TEMPDIR"
-  #
-  # How to add a deploy key to your GitHub repository:
-  # https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys
-  #
-  # How to add an environment variable to Travis CI:
-  # https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings
-  #
-  # The second method is to authenticate with a personal access token.
-  # However, this token is bound to your account and not only to the
-  # repository in question. This is a higher security risk to consider
-  # since the token grants access to all your repositories. Create a
-  # new personal access token with the "public_repo" scope. Provide the
-  # token to your Travic CI build instances via an environment variable
-  # called `GITHUB_TOKEN`.
-  #
-  # How to add a personal access token to your GitHub account:
-  # https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
-  #
+# There are two methods to authenticate the deployment to GitHub: The
+# first method is to generate a SSH keypair: the public key is stored
+# at the GitHub repository as a deploy key and the private key is
+# provided to your Travis CI build instances via a base64-encoded
+# environment variable called `GITHUB_DEPLOY_KEY`. You can use the
+# following script to easily generate those keys:
+#
+#     #!/bin/bash
+#     TEMPDIR=$(mktemp -d)
+#     ssh-keygen -b 4096 -t rsa -N "" -C "Travis CI" -f "$TEMPDIR/id_rsa" > /dev/null
+#     printf '\n%s\n\n' "Add a deploy key to your GitHub repository with the following value:"
+#     cat "$TEMPDIR/id_rsa.pub"
+#     printf '\n%s\n\n' "Add a variable called GITHUB_DEPLOY_KEY to Travis CI with the following value:"
+#     base64 -w 0 "$TEMPDIR/id_rsa"
+#     printf '\n\n'
+#     rm -rf "$TEMPDIR"
+#
+# How to add a deploy key to a GitHub repository:
+# https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys
+#
+# How to add an environment variable to Travis CI:
+# https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings
+#
+# The second method is to authenticate with a personal access token.
+# However, this token is bound to your account and not only to the
+# repository in question. This is a higher security risk to consider
+# since the token grants access to all your repositories. Create a new 
+# personal access token with the "public_repo" scope. Provide the token
+# to your Travic CI build instances via an environment variable 
+# called `GITHUB_TOKEN`.
+#
+# How to add a personal access token to a GitHub account:
+# https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
+#
 
-  language: python
-  python:
-    - "3.6"
+language: python
+python:
+  - "3.6"
 
-  jobs:
-    include:
-      - stage: test
-        name: "Pylint static code analysis"
-        script: pylint src
-      - stage: test
-        name: "Black code formatter"
-        script: black --check src
-      - stage: test
-        name: "Sphinx docs generator"
-        script: sphinx-build -b html docs docs/_build
-      - stage: deploy
-        name: "Deploy docs to GitHub pages"
-        script:
-        - |
-          #!/bin/bash
-          set -e
-          if [ "${TRAVIS_PULL_REQUEST}" != "false" ]
-          then
-            printf '%s\n' "No deployment for pull requests"
-            travis_terminate 0
-          fi
-          if [ "${TRAVIS_BRANCH}" != "master" ]
-          then
-            printf '%s\n' "No deployment for branches other than master"
-            travis_terminate 0
-          fi
-          git config user.name "traviscibot"
-          git config user.email "deploy@travis-ci.org"
-          git remote remove origin
-          git remote add origin "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
-          git push -d origin gh-pages || true
-          git checkout -b gh-pages
-          sphinx-build -b html docs docs/_build
-          git add -A
-          git commit -m "Update docs"
-          git push origin gh-pages
+jobs:
+  include:
+    - stage: test
+      name: "Pylint static code analysis"
+      script: pylint src
+    - stage: test
+      name: "Black code formatter"
+      script: black --check src
+    - stage: test
+      name: "Sphinx docs generator"
+      script: sphinx-build -b html docs docs/_build
+    - stage: deploy
+      name: "Deploy docs to GitHub"
+      script:
+      - |
+        #!/bin/bash
+        set -e
+        if [ "${TRAVIS_PULL_REQUEST}" != "false" ]
+        then
+          printf '%s\n' "No deployment for pull requests"
+          travis_terminate 0
+        fi
+        if [ "${TRAVIS_BRANCH}" != "master" ]
+        then
+          printf '%s\n' "No deployment for branches other than master"
+          travis_terminate 0
+        fi
+        git config user.name "traviscibot"
+        git config user.email "deploy@travis-ci.org"
+        git remote remove origin
+        git remote add origin "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
+        git push -d origin gh-pages || true
+        git checkout -b gh-pages
+        sphinx-build -b html docs docs/_build
+        git add -A
+        git commit -m "Update docs"
+        git push origin gh-pages
