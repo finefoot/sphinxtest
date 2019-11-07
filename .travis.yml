@@ -26,12 +26,11 @@
 #
 # The second method is to authenticate with a personal access token.
 # However, this token is bound to your account and not only to the
-# repository in question. This is a higher security risk to consider
+# repository in question. This is a bigger security risk to consider
 # since the token grants access to all your repositories. Create a
 # new personal access token with its scope set to "public_repo" or
-# higher. Provide the
-# token to your Travic CI build instances via an environment variable
-# called `GITHUB_TOKEN`.
+# higher. Provide the token to your Travic CI build instances via an
+# environment variable called `GITHUB_TOKEN`.
 #
 # How to add a personal access token to your GitHub account:
 # https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
