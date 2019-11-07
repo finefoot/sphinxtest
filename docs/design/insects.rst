@@ -4,8 +4,7 @@ Insects
 What our customers say:
 
     It's going to be glorious! Bzzzzzzz...
-
-    --Insect
+    --Fly
 
 .. image:: insects.png
 
