@@ -11,6 +11,9 @@ Execute the following Python code:
    print("Hello World!")
    import this
 
+.. note::
+   Further steps might be required.
+
 Windows
 -------
 
