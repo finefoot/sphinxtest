@@ -10,7 +10,7 @@ class KillerRabbit:
 
     VICIOUSNESS = 100
 
-    def __init__(self, health):
+    def                  __init__(self, health):
         """Initialize"""
 
         self.health = health
