@@ -1,10 +1,11 @@
 # Test the code with Pylint, Black and Sphinx
 # Compile and deploy the docs to GitHub pages
 #
-# There are two methods to authenticate the deployment to GitHub: The
-# first method is to generate a SSH keypair: the public key is stored
-# at the GitHub repository as a deploy key and the private key is
-# provided to your Travis CI build instances via a base64-encoded
+# This configuration for Travis CI supports two different methods to
+# authenticate the deployment to GitHub. The first method is to
+# generate a SSH keypair: the public key is stored at the GitHub
+# repository as a deploy key (with write access) and the private key
+# is provided to your Travis CI build instances via a base64-encoded
 # environment variable called `GITHUB_DEPLOY_KEY`. You can use the
 # following script to easily generate those keys:
 #
