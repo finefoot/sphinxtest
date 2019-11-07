@@ -4,7 +4,8 @@
 class KillerRabbit:
     """The Killer Rabbit of Caerbannog
 
-    The Killer Rabbit of Caerbannog is a fictional character in the Monty Python film Monty Python and the Holy Grail.
+    The Killer Rabbit of Caerbannog is a fictional character in the
+    Monty Python film Monty Python and the Holy Grail.
     """
 
     VICIOUSNESS = 100
@@ -17,6 +18,7 @@ class KillerRabbit:
     def attack(self, combatant):
         """Attack"""
 
+        self.health -= 1
         combatant.health -= 10
 
     def retreat(self):
