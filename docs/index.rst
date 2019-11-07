@@ -1,30 +1,25 @@
-Welcome to Fibonacci's documentation!
-=====================================
+Welcome to PROJECT's documentation!
+===================================
 
-blabla
+Introduction
 
 Table of contents
 -----------------
 
 .. toctree::
    :maxdepth: 1
-   :caption: Start
+   :caption: Getting Started
 
    self
+   getting_started/installation
 
 .. toctree::
    :maxdepth: 1
-   :caption: Usage
+   :caption: Design
 
-   usage/installation
-   usage/quickstart
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Code
-
-   code/start
-   code/nichts
+   design/animals
+   design/insects
+   design/plants
 
 .. toctree::
    :maxdepth: 1
