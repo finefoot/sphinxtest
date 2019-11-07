@@ -1,3 +1,6 @@
+# Test the code with Pylint, Black and Sphinx
+# Compile and deploy the docs to GitHub pages
+#
 # There are two methods to authenticate the deployment to GitHub: The
 # first method is to generate a SSH keypair: the public key is stored
 # at the GitHub repository as a deploy key and the private key is
@@ -15,7 +18,7 @@
 #     printf '\n\n'
 #     rm -rf "$TEMPDIR"
 #
-# How to add a deploy key to a GitHub repository:
+# How to add a deploy key to your GitHub repository:
 # https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys
 #
 # How to add an environment variable to Travis CI:
@@ -24,12 +27,13 @@
 # The second method is to authenticate with a personal access token.
 # However, this token is bound to your account and not only to the
 # repository in question. This is a higher security risk to consider
-# since the token grants access to all your repositories. Create a new 
-# personal access token with the "public_repo" scope. Provide the token
-# to your Travic CI build instances via an environment variable 
+# since the token grants access to all your repositories. Create a
+# new personal access token with its scope set to "public_repo" or
+# higher. Provide the
+# token to your Travic CI build instances via an environment variable
 # called `GITHUB_TOKEN`.
 #
-# How to add a personal access token to a GitHub account:
+# How to add a personal access token to your GitHub account:
 # https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
 #
 
@@ -49,7 +53,7 @@ jobs:
       name: "Sphinx docs generator"
       script: sphinx-build -b html docs docs/_build
     - stage: deploy
-      name: "Deploy docs to GitHub"
+      name: "Deploy docs to GitHub pages"
       script:
       - |
         #!/bin/bash
