@@ -23,4 +23,6 @@ class KillerRabbit:
     def retreat(self):
         """Retreat"""
 
-        return False
+        if self.VICIOUSNESS > 90:
+            return False
+        return True
