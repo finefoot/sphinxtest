@@ -1,4 +1,0 @@
-Staaaaart
-=========
-
-Textayayayay
