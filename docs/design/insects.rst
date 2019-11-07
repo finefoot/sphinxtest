@@ -5,6 +5,6 @@ Insects
 
 Source: https://pixabay.com/illustrations/cartoon-animal-insect-wasp-funny-3591514/
 
-- See the `Pixabay License <https://pixabay.com/service/license/>`_ for info.
+- `Pixabay License <https://pixabay.com/service/license/>`_
 - Free for commercial use
 - No attribution required
