@@ -51,7 +51,7 @@ jobs:
       script: black --check --diff src
     - stage: test
       name: "Sphinx docs generator"
-      script: sphinx-build -b html docs docs/_build
+      script: sphinx-build -b html -W --keep-going docs docs/_build
     - stage: deploy
       name: "Deploy docs to GitHub pages"
       script:
