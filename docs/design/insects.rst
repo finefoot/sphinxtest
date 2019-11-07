@@ -1,11 +1,6 @@
 Insects
 =======
 
-What our customers say:
-
-    It's going to be glorious! Bzzzzzzz...
-    --Fly
-
 .. image:: insects.png
 
 Source: https://pixabay.com/illustrations/cartoon-animal-insect-wasp-funny-3591514/
