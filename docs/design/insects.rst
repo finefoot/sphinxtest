@@ -1,9 +1,11 @@
 Insects
 =======
 
-It's going to be glorious!
+What our customers say:
 
-    Bzzzzzzz
+    It's going to be glorious! Bzzzzzzz...
+
+    --Insect
 
 .. image:: insects.png
 
