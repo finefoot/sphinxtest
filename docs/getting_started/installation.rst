@@ -14,6 +14,9 @@ Execute the following Python code:
 .. note::
    Further steps might be required.
 
+.. warning::
+   This might turn out to be unnecessary.
+
 Windows
 -------
 
