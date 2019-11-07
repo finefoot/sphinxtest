@@ -1,7 +1,7 @@
 """Various animals"""
 
 
-class Rabbit:
+class KillerRabbit:
     """The Killer Rabbit of Caerbannog
 
     The Killer Rabbit of Caerbannog is a fictional character in the
@@ -18,9 +18,9 @@ class Rabbit:
     def attack(self, combatant):
         """Attack"""
 
-        return 2 + id(self)
+        combatant.health -= 10
 
-    def retreat(self, xnumber):
+    def retreat(self):
         """Retreat"""
 
         return False
