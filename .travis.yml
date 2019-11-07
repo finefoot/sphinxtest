@@ -76,6 +76,7 @@ jobs:
           printf '%s\n' "Using GITHUB_DEPLOY_KEY to authenticate"
           mkdir -p "$HOME/.ssh"
           printf '%s' "${GITHUB_DEPLOY_KEY}" | base64 -d > "$HOME/.ssh/id_rsa"
+          chmod 0600 "$HOME/.ssh/id_rsa"
           git remote add origin "git@github.com:{TRAVIS_REPO_SLUG}.git"
         elif [ -n "${GITHUB_TOKEN}" ]
         then
