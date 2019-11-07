@@ -1,6 +1,10 @@
 Insects
 =======
 
+It's going to be glorious!
+
+    Bzzzzzzz
+
 .. image:: insects.png
 
 Source: https://pixabay.com/illustrations/cartoon-animal-insect-wasp-funny-3591514/
