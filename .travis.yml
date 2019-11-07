@@ -70,7 +70,20 @@ jobs:
         git config user.name "traviscibot"
         git config user.email "deploy@travis-ci.org"
         git remote remove origin
-        git remote add origin "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
+        if [ -n "${GITHUB_DEPLOY_KEY}" ]
+        then
+          printf '%s\n' "Using GITHUB_DEPLOY_KEY to authenticate"
+          mkdir -p "$HOME/.ssh"
+          printf '%s' "${GITHUB_DEPLOY_KEY}" | base64 -d > "$HOME/.ssh/id_rsa"
+          git remote add origin "git@github.com:{TRAVIS_REPO_SLUG}.git"
+        elif [ -n "${GITHUB_TOKEN}" ]
+        then
+          printf '%s\n' "Using GITHUB_TOKEN to authenticate"
+          git remote add origin "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
+        else
+          printf '%s\n' "Neither GITHUB_DEPLOY_KEY nor GITHUB_TOKEN is set"
+          travis_terminate 1
+        fi
         git push -d origin gh-pages || true
         git checkout -b gh-pages
         sphinx-build -b html docs docs/_build
