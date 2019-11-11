@@ -1,4 +1,4 @@
-# ⚠️ TODO pytest, coverage
+# ⚠️ TODO pytest, coverage, Howto for register Travis (Marketplace not necessary, ... etc.)
 
 # sphinxtest
 
