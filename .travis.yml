@@ -52,9 +52,6 @@ jobs:
     - stage: test
       name: "Sphinx docs generator"
       script: sphinx-build -b html -W --keep-going docs docs/_build
-    - stage: test
-      name: "Codecov"
-      script: pip install codecov && codecov
     - stage: deploy
       name: "Deploy docs to GitHub pages"
       script:
