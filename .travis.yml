@@ -54,41 +54,50 @@ jobs:
       script: sphinx-build -b html -W --keep-going docs docs/_build
     - stage: deploy
       name: "Deploy docs to GitHub pages"
-      script:
-      - |
-        #!/bin/bash
-        set -e
-        if [ "${TRAVIS_PULL_REQUEST}" != "false" ]
-        then
-          printf '%s\n' "No deployment for pull requests"
-          travis_terminate 0
-        fi
-        if [ "${TRAVIS_BRANCH}" != "master" ]
-        then
-          printf '%s\n' "No deployment for branches other than master"
-          travis_terminate 0
-        fi
-        git config user.name "traviscibot"
-        git config user.email "deploy@travis-ci.org"
-        git remote remove origin
-        if [ -n "${GITHUB_DEPLOY_KEY}" ]
-        then
-          printf '%s\n' "Using GITHUB_DEPLOY_KEY to authenticate"
-          mkdir -p "$HOME/.ssh"
-          printf '%s' "${GITHUB_DEPLOY_KEY}" | base64 -d > "$HOME/.ssh/id_rsa"
-          chmod 0600 "$HOME/.ssh/id_rsa"
-          git remote add origin "git@github.com:${TRAVIS_REPO_SLUG}.git"
-        elif [ -n "${GITHUB_TOKEN}" ]
-        then
-          printf '%s\n' "Using GITHUB_TOKEN to authenticate"
-          git remote add origin "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
-        else
-          printf '%s\n' "Neither GITHUB_DEPLOY_KEY nor GITHUB_TOKEN is set"
-          travis_terminate 1
-        fi
-        git push -d origin gh-pages || true
-        git checkout -b gh-pages
-        sphinx-build -b html docs docs/_build
-        git add -A
-        git commit -m "Update docs"
-        git push origin gh-pages
+      script: |
+        (
+          #!/bin/bash
+          set -e
+          if [ "${TRAVIS_PULL_REQUEST}" != "false" ]
+          then
+            printf '%s\n' "No deployment for pull requests"
+            travis_terminate 0
+          fi
+          if [ "${TRAVIS_BRANCH}" != "master" ]
+          then
+            printf '%s\n' "No deployment for branches other than master"
+            travis_terminate 0
+          fi
+          git config user.name "traviscibot"
+          git config user.email "deploy@travis-ci.org"
+          git remote remove origin
+          if [ -n "${GITHUB_DEPLOY_KEY}" ]
+          then
+            printf '%s\n' "Using GITHUB_DEPLOY_KEY to authenticate"
+            mkdir -p "$HOME/.ssh"
+            printf '%s' "${GITHUB_DEPLOY_KEY}" | base64 -d > "$HOME/.ssh/id_rsa"
+            chmod 0600 "$HOME/.ssh/id_rsa"
+            git remote add origin "git@github.com:${TRAVIS_REPO_SLUG}.git"
+          elif [ -n "${GITHUB_TOKEN}" ]
+          then
+            printf '%s\n' "Using GITHUB_TOKEN to authenticate"
+            git remote add origin "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
+          else
+            printf '%s\n' "Neither GITHUB_DEPLOY_KEY nor GITHUB_TOKEN is set"
+            travis_terminate 1
+          fi
+          git push -d origin gh-pages || true
+          git checkout -b gh-pages
+          # Optional: Compile PDF file
+          #(
+          #  sudo apt update
+          #  sudo apt install -y texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra texlive-xetex latexmk fonts-freefont-otf lmodern xindy
+          #  sphinx-build -b latex -D latex_engine=xelatex docs docs/_build
+          #  cd docs/_build
+          #  make
+          #)
+          sphinx-build -b html docs docs/_build
+          git add -A
+          git commit -m "Update docs"
+          git push origin gh-pages
+        )
